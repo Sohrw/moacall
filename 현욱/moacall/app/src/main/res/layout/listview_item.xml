@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:id="@+id/listview_layout"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/startTimeText"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/teal_200"
+            android:gravity="center"></TextView>
+
+        <TextView
+            android:id="@+id/acceptTime"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:background="@color/purple_200"
+            android:gravity="center"></TextView>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:id="@+id/map_layout"
+            android:descendantFocusability="beforeDescendants"
+            >
+
+            <TextView
+                android:id="@+id/summaryAddress"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"></TextView>
+
+            <Button
+                android:id="@+id/mapButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="지도"></Button>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/typeOfPaymentText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/material_dynamic_neutral40"
+            android:gravity="center"
+            android:text="선결제"></TextView>
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:background="@color/purple_500"
+            android:gravity="center"
+            android:text="20.5/6.4"></TextView>
+
+        <TextView
+            android:id="@+id/clinetAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:background="#ffd9df"
+            android:gravity="center"
+            android:text="조원동 광교산스위첸아파트 104동 1701호">
+
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#d3f0eb"
+            android:gravity="center"
+            android:text="변환주소">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/clientRefectorAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="송원로 131-28"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="메모"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:background="#abcdef">
+        </TextView>
+
+        <TextView
+            android:id="@+id/memoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고객요청사항 : 문 앞에 두고 벨 눌러주세요 조심히 안전하게 와주세요 ^0^ 수저포크 O 김치 O"
+            android:background="#d3f0eb">
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

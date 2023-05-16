@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+  <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+  <form role="form" action="/order" method="post" th:object="${form}">
+    <div class="form-group">
+      <label for="member">주문회원</label>
+      <select name="memberId" id="member" class="form-control">
+        <option value="">회원선택</option> <option th:each="member : ${members}" th:value="${member.id}" th:text="${member.name}" />
+      </select>
+    </div>
+    <div class="form-group">
+      <label th:for="clientAddress">배송 목적지(시)</label>
+      <input type="text" th:field="*{clientCity}" class="form-control" placeholder="배송 목적지를 입력하세요">
+      <input type="button" onclick="sample_DaumData()" value="우편번호 찾기">
+    </div>
+    <div class="form-group">
+      <label th:for="clientAddress">배송 목적지(거리)</label>
+      <input type="text" th:field="*{clientStreet}" class="form-control" placeholder="배송 목적지를 입력하세요">
+    </div>
+    <div class="form-group">
+      <label th:for="clientAddress">배송 목적지(우편번호)</label>
+      <input type="text" th:field="*{clientZipcode}" class="form-control" placeholder="배송 목적지를 입력하세요">
+    </div>
+    <div class="form-group">
+      <label th:for="clientAddress">배송 목적지(나머지)</label>
+      <input type="text" th:field="*{clientDetailAddress}" class="form-control" placeholder="배송 목적지를 입력하세요">
+    </div>
+    <div class="form-group">
+      <label th:for="clientPrice">전체 주문 금액</label>
+      <input type="text" th:field="*{clientPrice}" class="form-control" placeholder="배송 목적지를 입력하세요">
+
+    </div>
+
+    <div class="form-group">
+      <label th:for="deliveryPrice">배달 기사 수익 금액</label>
+      <input type="text" th:field="*{deliveryPrice}" class="form-control" placeholder="배송 목적지를 입력하세요">
+
+    </div>
+    <div class="form-group">
+      <label th:for="memo">고객 요청 사항</label>
+      <input type="text" th:field="*{memo}" class="form-control" placeholder="배송 목적지를 입력하세요">
+
+    </div>
+    <div class="form-group">
+      <label th:for="paymentType">결제 타입</label>
+      <select name="paymentStatusVal" id="paymentStatusVal" class="form-control" th:field="*{paymentType}">
+        <option th:each="paymemtStatusValue : ${T(deliverySystem.moacall.domain.PaymentType).values()}"
+                th:value="${paymemtStatusValue}"
+                th:text="${paymemtStatusValue}">val</option>
+      </select>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br/>
+  <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+<script>
+  function sample_DaumData() {
+    new daum.Postcode({
+      oncomplete: function (data) {
+
+        var addr = '';
+        var extraAddr = '';
+
+        if (data.userSelectedType == 'R') {
+          addr = data.roadAddress;
+        } else {
+          addr = data.jibunAddress;
+        }
+
+        if (data.userSelectedType == 'R') {
+          if (daum.bname != '' && /[동|로|가]$/g.test(data.bname)) {
+            extraAddr += data.bname;
+          }
+          if (daum.buildingName != '' && data.apartment == 'Y') {
+            extraAddr += (extraAddr != '' ? ', ' + data.buildingName : data.buildingName);
+          }
+          if (extraAddr != '') {
+            extraAddr = ' (' + extraAddr + ')';
+          }
+          document.getElementById("clientDetailAddress").value = extraAddr;
+        } else {
+          document.getElementById("clientZipcode").value = data.zonecode;
+          document.getElementById("clientStreet").value = addr;
+          document.getElementById("clientDetailAddress").focus();
+
+        }
+      }
+    }).open();
+  }
+</script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</html>

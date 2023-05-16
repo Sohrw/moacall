@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>모아콜</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+  <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+  <div class="jumbotron"> <h1>회원</h1>
+    <p class="lead">회원 가입</p> <p>
+      <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
+    </p>
+  </div>
+  <div class="jumbotron"> <h1>주문</h1>
+    <p class="lead">주문 신청</p> <p>
+      <a class="btn btn-lg btn-secondary" href="/order/new">주문 신청</a>
+    </p>
+  </div>
+
+  <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
