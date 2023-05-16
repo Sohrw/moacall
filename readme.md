@@ -12,4 +12,5 @@
 
 <img width="779" alt="스크린샷 2023-05-16 오후 4 40 23" src="https://github.com/Sohrw/moacall/assets/105612710/1febb6d2-22fa-4df4-b94a-c69bfbe82e49">
 <img width="770" alt="스크린샷 2023-05-16 오후 4 40 32" src="https://github.com/Sohrw/moacall/assets/105612710/b62c9335-89ff-469c-89ba-59bb7a76b1e0">
+
 웹에서는 회원가입과 주문하기로 구성되어있다. 
